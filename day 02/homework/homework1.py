@@ -2,8 +2,8 @@ from turtle import *
 speed(30)
 width(7)
 
-fillcolor("yellow")
-color("yellow")
+fillcolor("grey")
+color("grey")
 
 forward(100)
 left(90)
@@ -118,14 +118,4 @@ goto(1,200)
 pendown()
 forward(103)
 right(220)
-forward(60)
-left(73)
-forward(67)
-
-
-
-
-
-
-
 exitonclick()
