@@ -1,0 +1,167 @@
+<!--type
+განსაზღვრავს input-ის ტიპს (მაგ. text, radio, checkbox, date, number და სხვა)
+name
+ელემენტის სახელი — გამოიყენება მონაცემების გადაცემისთვის სერვერზე (ფორმის გაგზავნისას)
+id
+უნიკალური იდენტიფიკატორი ელემენტისთვის; ხშირად გამოიყენება JavaScript-ში ან label ელემენტთან დასაკავშირებლად
+for
+გამოიყენება <label> ელემენტში, რათა მიუთითოს რომელი id-ს input-ს უკავშირდება
+value
+მნიშვნელობა, რომელიც input-ს გააჩნია (და იგზავნება ფორმასთან ერთად)
+placeholder
+ნაჩვენები ტექსტი ველში მანამდე, სანამ მომხმარებელი რაიმე ჩაწერს
+required
+თუ მითითებულია, ველი აუცილებელია შევსებისთვის (ფორმა არ გაიგზავნება მის გარეშე)-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Radio და Checkbox — ესენი არიან HTML-ში input ელემენტების სპეციფიკური ტიპები, რომლებიც გამოიყენება სხვადასხვა ტიპის არჩევისთვის-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>პროდუქტის დახასიათება</h1>
+
+
+
+            <form>
+                <!-- პროდუქტის სახელი -->
+                <label for="productName">პროდუქტის სახელი:</label>
+                <input type="text" id="productName" name="productName"  required>
+                <br><br>
+              
+                <!-- პროდუქტის ფასი -->
+                <label for="productPrice">ფასი (₾):</label>
+                <input type="text" id="productPrice" name="productPrice" required>
+                <br><br>
+              
+                <!-- გამოშვების თარიღი -->
+                <label for="Date">გამოშვების თარიღი:</label>
+                <input type="date" id="releaseDate" name="releaseDate" required>
+                <br><br>
+              
+                <button type="submit">დამატება</button>
+              </form>
+      </form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>წიგნების მაყაზია</h1>
+    <label>როგორი წიგნი</label><br>
+    <input type="radio" id="male" name="gender" value="male" required>
+    <label for="male">რომანი</label><br>
+    <input type="radio" id="female" name="gender" value="female" required>
+    <label for="female">გამოძიება</label><br><br>
+    <p>ჩვენთან არის ყველაზე კარგი წიგნები</p>
+
+</body>
+</html>
