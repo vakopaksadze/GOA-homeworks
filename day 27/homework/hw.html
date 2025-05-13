@@ -1,0 +1,123 @@
+<!--<select> თეგი გამოიყენება ჩამოსაშლელი მენიუს (drop-down list) შესაქმნელად.
+<option> თეგი წარმოადგენს თითოეულ ვარიანტს ჩამოსაშლელ მენიუში.-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <label> თეგი გამოიყენება input/select ელემენტთან ასოცირებისთვის.
+for ატრიბუტი label-ში უნდა ემთხვეოდეს input/select-ის id-ს.-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <title>ვალუტის გადაცვლა</title>
+</head>
+<body>
+
+  <h2>ვალუტის გადაცვლა</h2>
+
+  <form>
+    <!-- ვალუტა, რომლის გადაცვლაც გვინდა -->
+    <label for="from">საწყისი ვალუტა:</label>
+    <select id="from">
+      <option value="USD">USD</option>
+      <option value="EUR">EUR</option>
+      <option value="GEL" selected>GEL</option>
+    </select>
+
+    <br><br>
+
+    <!-- ვალუტა, რომელშიც უნდა გადავცვალოთ -->
+    <label for="to">სასურველი ვალუტა:</label>
+    <select id="to">
+      <option value="USD">USD</option>
+      <option value="EUR" selected>EUR</option>
+      <option value="GEL">GEL</option>
+    </select>
+
+    <br><br>
+
+    <!-- რაოდენობა -->
+    <label for="amount">რაოდენობა:</label>
+    <input type="text" id="amount">
+
+    <br><br>
+
+    <button type="submit">გადაცვლა</button>
+  </form>
+
+</body>
+</html>
+
