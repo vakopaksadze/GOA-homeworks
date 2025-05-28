@@ -1,0 +1,117 @@
+<!-- ზოგი ბრაუზერი ერთ ფორმატს კითხულობს, ზოგი სხვას -->
+<!-- ამიტომ ვიყენებთ რამდენიმე ფორმატს -->
+
+<video controls>
+  <source src="video.mp4" type="video/mp4">
+  <source src="video.webm" type="video/webm">
+</video>
+
+<!-- type ატრიბუტი აჩვენებს ვიდეოს ფორმატს -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>მოკლე ვიდეო</h2>
+
+<video id="myVideo" width="400" muted>
+  <source src="video.mp4" type="video/mp4">
+</video>
+
+<br>
+
+<button onclick="document.getElementById('myVideo').requestFullscreen()">გადიდება</button>
+<button onclick="document.getElementById('myVideo').muted = false">ხმის ჩართვა</button>
+<button onclick="document.getElementById('myVideo').muted = true">დამიუთვა</button>
+
+<script>
+  document.getElementById('myVideo').play();
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>ჩემი მანქანა</h2>
+
+<video autoplay muted loop width="400">
+  <source src="car.mp4" type="video/mp4">
+</video>
+
+</body>
+</html>
