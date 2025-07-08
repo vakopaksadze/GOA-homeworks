@@ -1,0 +1,16 @@
+/* h2 და h3 ერთად სტილიზაცია ერთ წესში */
+h2, h3 {
+  color: darkblue;
+  text-align: center;
+}
+
+/* ყველა ღილაკი ცისფერი */
+button {
+  background-color: skyblue;
+  color: white;
+}
+
+/* მხოლოდ დივში არსებული ღილაკები მწვანე ფერით */
+div > button {
+  background-color: green;
+}
