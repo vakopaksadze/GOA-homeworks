@@ -1,0 +1,235 @@
+/*
+ID სელექტორი:
+- გამოიყენება უნიკალური ელემენტისთვის.
+- აღინიშნება "#" სიმბოლოთი.
+მაგალითად: #myTitle { color: red; }
+
+CLASS სელექტორი:
+- გამოიყენება მრავალ ელემენტზე.
+- აღინიშნება "." სიმბოლოთი.
+მაგალითად: .myParagraph { color: blue; }
+
+მთავარი განსხვავება:
+- ID მხოლოდ ერთხელ შეიძლება გამოყენდეს ერთ გვერდზე.
+- CLASS შეიძლება ბევრ ელემენტზე ჰქონდეს ერთდროულად.
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <title>Class Selector</title>
+  <style>
+    .commonStyle {
+      font-family: Arial, sans-serif;
+      color: darkgreen;
+      background-color: #f2f2f2;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2 class="commonStyle">ეს არის სათაური</h2>
+  <p class="commonStyle">ეს არის პარაგრაფი</p>
+  <button class="commonStyle">ღილაკი</button>
+  <div class="commonStyle">დივი ელემენტი</div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <title>ID და CLASS Example</title>
+  <style>
+    #mainTitle {
+      color: darkblue;
+      font-size: 24px;
+      font-family: Tahoma, sans-serif;
+    }
+
+    #mainButton {
+      background-color: teal;
+      color: white;
+      font-size: 16px;
+    }
+
+    .paraStyle {
+      font-size: 16px;
+      color: darkred;
+      font-family: Georgia, serif;
+    }
+  </style>
+</head>
+<body>
+
+  <div>
+    <h1 id="mainTitle">სათაური</h1>
+
+    <p class="paraStyle">პირველი პარაგრაფი</p>
+    <p class="paraStyle">მეორე პარაგრაფი</p>
+    <p class="paraStyle">მესამე პარაგრაფი</p>
+
+    <button id="mainButton">ღილაკი</button>
+  </div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <title>ჩემი ჰობი</title>
+  <style>
+    #pageTitle {
+      color: maroon;
+      font-size: 30px;
+      font-family: Verdana, sans-serif;
+    }
+
+    .section {
+      background-color: #fffae6;
+      color: #333;
+      font-size: 16px;
+      font-family: Arial, sans-serif;
+    }
+
+    #endButton {
+      background-color: green;
+      color: white;
+      font-size: 16px;
+      font-family: Arial;
+    }
+  </style>
+</head>
+<body>
+
+  <h1 id="pageTitle">ჩემი ჰობი — მუსიკის მოსმენა</h1>
+
+  <div class="section">
+    <p>მუსიკა დამეხმარება განტვირთვაში და შთაგონების პოვნაში.</p>
+  </div>
+
+  <div class="section">
+    <p>ყველაზე მეტად მიყვარს კლასიკური მუსიკა და ჯაზი.</p>
+  </div>
+
+  <button id="endButton">გაიგე მეტი</button>
+
+</body>
+</html>
