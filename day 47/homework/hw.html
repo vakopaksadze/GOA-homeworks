@@ -1,0 +1,157 @@
+<!-- 
+2) კომენტარების სახით ახსენით რა არის specificity და როგორ მუშაობს იგი.
+
+ Specificity (სპეციფიკურობა) განსაზღვრავს, რომელი CSS წესი იმოქმედებს, 
+   როცა ერთსა და იმავე ელემენტზე რამდენიმე სტილი ვრცელდება.
+
+ ბრაუზერი ირჩევს იმას, ვისაც ყველაზე მაღალი სპეციფიურობა აქვს.
+
+ სპეციფიკურობის დონეები:
+
+  - ელემენტების სელექტორი (element) → ყველაზე დაბალი (მაგ: h1, p)
+  - კლასის სელექტორი (class) → უფრო მაღალი (მაგ: .title)
+  - აიდის სელექტორი (id) → კიდევ უფრო მაღალი (მაგ: #main)
+  - inline სტილი (style="...") → ყველაზე მაღალი
+
+ თუ ერთზე მეტი სტილი მოქმედებს, იგებს ის, ვისაც მაღალი Specificity აქვს.
+-->
+
+<!-- 
+3) ჩამოთვალეთ CSS Priority-ის ყველა დონე და მაგალითები:
+
+ პრიორიტეტების იერარქია მაღალი → დაბლის მიხედვით:
+
+1. Inline სტილი (style="...")                       ყველაზე მაღალი
+2. ID სელექტორი (#id)                              ძალიან მაღალი
+3. კლასის სელექტორი (.class), attributes, :hover  საშუალო
+4. ელემენტის სელექტორი (element selector)         დაბალი
+
+ მაგალითი:
+<h1 id="title" class="highlight" style="color: orange;">ტექსტი</h1>
+
+<style>
+  h1 { color: gray; }             /* 4 - ელემენტი */
+  .highlight { color: green; }    /* 3 - კლასი */
+  #title { color: blue; }         /* 2 - აიდი */
+</style>
+
+ საბოლოოდ ფერი იქნება orange, რადგან inline style მოიგებს (პრიორიტეტი 1).
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <title>მოგზაურობა საქართველოში</title>
+  <style>
+    /* ელემენტის სტილი ყველა h1-ზე */
+    h1 {
+      color: darkblue;
+      text-align: center;
+    }
+
+    /* class selector — ყველა ტექსტისთვის */
+    .text {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      margin: 10px 20px;
+    }
+
+    /* id selector — უნიკალური სათაური */
+    #highlighted-title {
+      color: crimson;
+      font-size: 32px;
+      text-decoration: underline;
+    }
+
+    /* სიის სტილები */
+    ul {
+      background-color: #f9f9f9;
+      padding: 10px 20px;
+      border-left: 4px solid darkgreen;
+    }
+
+    /* სურათი */
+    .image {
+      display: block;
+      margin: 20px auto;
+      max-width: 400px;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- h1 ID-ით -->
+  <h1 id="highlighted-title">მოგზაურობა საქართველოში</h1>
+
+  <!-- ელემენტის სელექტორით გასტილული h1 -->
+  <h1>ყველაზე ლამაზი ადგილები</h1>
+
+  <!-- class-ით გასტილებული პარაგრაფები -->
+  <p class="text">საქართველო ცნობილია თავისი თვალწარმტაცი ბუნებით და მდიდარი კულტურით. 
+  ქვეყანაში მოგზაურობა ნიშნავს შეხვდე მთებს, ზღვას და უძველეს ტაძრებს ერთ დღესვე.</p>
+
+  <p class="text">განსაკუთრებით პოპულარული ადგილებია: ყაზბეგი, მესტია, ბათუმი და სვანეთი. 
+  ამ რეგიონებში შეგიძლია ნახო როგორც ბუნებრივი სილამაზე, ასევე ადგილობრივი ტრადიციები.</p>
+
+  <!-- სია -->
+  <ul>
+    <li> ყაზბეგი — მთის ხედები</li>
+    <li> მესტია — სვანური კოშკები</li>
+    <li> ბათუმი — ზღვისპირა ქალაქი</li>
+    <li> ვარძია — კლდეში ნაკვეთი ქალაქი</li>
+  </ul>
+
+  <!-- სურათი -->
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Georgia_Kazbegi_Mountain.jpg/800px-Georgia_Kazbegi_Mountain.jpg" 
+       alt="ყაზბეგი" class="image">
+
+  <!-- Inline სტილით გაფორმებული h1 -->
+  <h1 style="color: orange;">გადაავლე თვალი საქართველოს საოცრებებს</h1>
+
+</body>
+</html>

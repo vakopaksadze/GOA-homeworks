@@ -1,0 +1,194 @@
+<!-- 
+1) კომენტარების სახით ახსენით რა არის specificity და როგორ მუშაობს იგი.
+
+Specificity (სპეციფიკურობა) განსაზღვრავს, რომელი CSS წესი უნდა გამოყენდეს, 
+როდესაც ერთ ელემენტზე რამდენიმე სტილი მოქმედებს. 
+Specificity-ის მნიშვნელობა იზრდება selector-ის სიზუსტის მიხედვით:
+
+ ელემენტის სელექტორი (element selector) — ყველაზე სუსტი
+ კლასის სელექტორი (class selector) — უფრო ძლიერი
+ ID სელექტორი — კიდევ უფრო ძლიერი
+ Inline სტილი (style="") — ყველაზე ძლიერი
+-->
+
+<!-- 
+2) ჩამოთვალეთ CSS priority-ის დონეები და მაგალითები:
+
+1. Inline სტილი: <h1 style="color: red;">
+2. ID სელექტორი: #title { color: blue; }
+3. Class სელექტორი: .heading { color: green; }
+4. ელემენტის სელექტორი: h1 { color: gray; }
+
+პრიორიტეტი: Inline > ID > Class > Element
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+3) ვებ-გვერდი ერთი h1-ით და სამი p ელემენტით 
+h1-ს ID და პარაგრაფებს class აქვს.
+-->
+
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <title>დავალება 3</title>
+  <style>
+    /* ID სელექტორი h1-სთვის */
+    #main-title {
+      color: red;
+      font-size: 30px;
+    }
+
+    /* Class სელექტორი პარაგრაფებისთვის */
+    .text {
+      color: blue;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1 id="main-title">ეს არის სათაური</h1>
+
+  <p class="text">პირველი პარაგრაფი</p>
+  <p class="text">მეორე პარაგრაფი</p>
+  <p class="text">მესამე პარაგრაფი</p>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+4) ვებ-გვერდი ოთხი h1 ელემენტით:
+- პირველი: ელემენტ სელექტორით
+- მეორე: class selector-ით
+- მესამე: id selector-ით
+- მეოთხე: inline style-ით
+-->
+
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <title>დავალება 4</title>
+  <style>
+    /* ყველა h1 ელემენტისთვის */
+    h1 {
+      color: gray;
+    }
+
+    /* class selector */
+    .green {
+      color: green;
+    }
+
+    /* ID selector */
+    #blue {
+      color: blue;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>პირველი H1 - ელემენტ სელექტორი (gray)</h1>
+
+  <h1 class="green">მეორე H1 - class სელექტორი (green)</h1>
+
+  <h1 id="blue">მესამე H1 - ID სელექტორი (blue)</h1>
+
+  <h1 style="color: red;">მეოთხე H1 - Inline სტილი (red)</h1>
+
+</body>
+</html>
