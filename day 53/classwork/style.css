@@ -1,0 +1,29 @@
+body {
+            color: aqua;
+            text-align: center;
+        }
+
+        h1 {
+            color: darkblue;
+        }
+
+        /* :link — ბმულების საწყისი ფერი */
+        a:link {
+            color: blue;
+        }
+
+        /* :active — როცა ბმულს დააჭერ */
+        a:active {
+            color: red;
+        }
+
+        /* :hover — როცა მაუსს გადაჰყავ */
+        a:hover {
+            color: green;
+            text-decoration: underline;
+        }
+        a:link {
+            color : red;
+            background-color: aqua;
+            text-decoration: line-through dotted blue;
+        }

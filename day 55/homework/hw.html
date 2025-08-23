@@ -1,0 +1,128 @@
+/* nth-child() გამოიყენება კონკრეტული ელემენტის შერჩევისთვის რიგითობის მიხედვით */
+
+/* მაგ: თუ გვინდა ყოველ მეორე <li> ელემენტს ჰქონდეს სხვა ფონი: */
+li:nth-child(2n) {
+  background-color: lightgray;
+}
+
+/* 1) შეგვიძლია სტილი მივანიჭოთ კონკრეტულ რიგითობას: */
+p:nth-child(3) {
+  color: red;
+}
+
+/* 2) ან ვიყენოთ ფორმულა – მაგალითად ყოველ მესამე ელემენტზე: */
+div:nth-child(3n) {
+  background-color: yellow;
+}
+
+/* ის მუშაობს მხოლოდ მაშინ, როცა ელემენტები ერთმანეთის შვილია */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ჩემი საყვარელი კერძი</title>
+  <style>
+    table {
+      width: 50%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    tr:nth-child(even) {
+      background-color: #e6ffe6;
+    }
+
+    tr:hover {
+      background-color: #d1ffd1;
+    }
+  </style>
+</head>
+<body>
+  <h1>ჩემი საყვარელი კერძი – ხაჭაპური</h1>
+  <p>ქვემოთ მოცემულია ხაჭაპურის ინგრედიენტები:</p>
+
+  <table>
+    <tr>
+      <th>№</th>
+      <th>ინგრედიენტი</th>
+      <th>რაოდენობა</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>ფქვილი</td>
+      <td>500გრ</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>ყველი</td>
+      <td>300გრ</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>წყალი</td>
+      <td>200მლ</td>
+    </tr>
+  </table>
+</body>
+</html>
