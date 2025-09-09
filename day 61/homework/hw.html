@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SoftC Company</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #fff;
+      padding: 15px 40px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    header h2 {
+      margin: 0;
+      color: #222;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      margin: 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      background: linear-gradient(90deg, #e75480, #f78a2a);
+      min-height: 90vh;
+      color: white;
+    }
+
+    .hero-text {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 40%;
+    }
+
+    .hero-text h1 {
+      font-size: 2.2em;
+      margin: 0;
+    }
+
+    .hero-text p {
+      margin: 0;
+      font-size: 1.1em;
+    }
+
+    .hero-text button {
+      border: none;
+      background: white;
+      color: #e75480;
+      padding: 12px 25px;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .hero-image {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+    }
+
+    .hero-image img {
+      max-width: 400px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h2>SoftC Company</h2>
+    <nav>
+      <ul>
+        <li><a href="#">Company</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Custom Software</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Contacts</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Professional Software Development Services</h1>
+      <p>Software engineering & beyond</p>
+      <button>REQUEST A QUOTE</button>
+    </div>
+    <div class="hero-image">
+      <img src="https://cdn-icons-png.flaticon.com/512/4149/4149670.png" alt="Software">
+    </div>
+  </section>
+
+</body>
+</html>
