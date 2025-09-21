@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JS Tasks</title>
+</head>
+<body>
+  
+  <!-- 2) სახელი prompt-ით -->
+  <button id="nameBtn">Enter Name</button>
+  <p id="output"></p>
+
+  <!-- 3) Input ტექსტი -->
+  <input id="userInput" type="text" placeholder="Type here">
+  <button id="showBtn">Show</button>
+  <p id="display"></p>
+
+  <!-- 4) პაროლი prompt-ით -->
+  <button id="passBtn">Enter Password</button>
+  <p id="passOut"></p>
+
+  <!-- 5) ასაკი input-ით -->
+  <input id="ageInput" type="number" placeholder="Enter age">
+  <button id="ageBtn">Show Age</button>
+  <p id="ageOut"></p>
+
+  <!-- JS კოდი -->
+  <script>
+    // 2) სახელი prompt-ით
+    function showName() {
+      let name = prompt("Enter your name");
+      document.getElementById("output").textContent = name;
+    }
+    document.getElementById("nameBtn").addEventListener("click", showName);
+
+    // 3) Input ტექსტი
+    function displayText() {
+      let text = document.getElementById("userInput").value;
+      document.getElementById("display").textContent = text;
+    }
+    document.getElementById("showBtn").addEventListener("click", displayText);
+
+    // 4) პაროლი prompt-ით
+    function getPassword() {
+      let pass = prompt("Enter your password");
+      document.getElementById("passOut").textContent = pass;
+    }
+    document.getElementById("passBtn").addEventListener("click", getPassword);
+
+    // 5) ასაკი input-ით
+    function showAge() {
+      let age = document.getElementById("ageInput").value;
+      document.getElementById("ageOut").textContent = age;
+    }
+    document.getElementById("ageBtn").addEventListener("click", showAge);
+  </script>
+
+</body>
+</html>

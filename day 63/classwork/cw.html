@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="myParagraph">ეს არის პარაგრაფი</p>
+    <button onclick="changeColor('red')">გახდეს წითელი</button>
+    <button onclick="changeColor('blue')">გახდეს ლურჯი</button>
+
+    <script>
+        // ფუნქცია რომელიც console-ში გამოიტანს "Hello World"
+        function sayHello() {
+            console.log("Hello World");
+        }
+
+        sayHello(); // გამოძახება
+
+        // ფუნქცია რომელიც დააბრუნებს რაიმე რიცხვს
+        function giveNumber() {
+            return 7;
+        }
+
+        console.log(giveNumber()); // 7
+
+        // ფუნქცია რომელიც აბრუნებს 2 რიცხვის ჯამს
+        function sum(a, b) {
+            return a + b;
+        }
+
+        console.log(sum(5, 3)); // 8
+
+        // ფუნქცია რომელიც პარაგრაფის ფერს შეცვლის
+        function changeColor(color) {
+            let p = document.getElementById("myParagraph");
+            p.style.color = color;
+        }
+    </script>
+</body>
+</html>
