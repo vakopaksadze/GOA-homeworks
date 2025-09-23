@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JS Tasks</title>
+  <script src="hw.JS" defer></script>
+</head>
+<body>
+
+  <!--  ქალაქის prompt -->
+  <button id="cityBtn">Enter City</button>
+  <p id="cityOut"></p>
+
+  <!-- რიცხვის გაორმაგება -->
+  <input id="numInput" type="number" placeholder="Enter number">
+  <button id="doubleBtn">Double</button>
+  <p id="numOut"></p>
+
+  <!--  ორი რიცხვის შედარება -->
+  <button id="compBtn">Compare</button>
+  <p id="compOut"></p>
+
+  <!--  სიტყვის სიგრძე -->
+  <input id="wordInput" type="text" placeholder="Enter word">
+  <button id="lengthBtn">Check Length</button>
+  <p id="wordOut"></p>
+
+  <!--  ორი რიცხვის ჯამი -->
+  <button id="calcBtn">Calculate</button>
+  <p id="calcOut"></p>
+
+</body>
+</html>
