@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <title>Form Validation</title>
+</head>
+<body>
+  <h2>მომხმარებლის მონაცემები</h2>
+  <input id="name" type="text" placeholder="სახელი"><br><br>
+  <input id="email" type="email" placeholder="Email"><br><br>
+  <input id="password" type="password" placeholder="Password"><br><br>
+  <button onclick="checkForm()">Submit</button>
+
+  <script>
+    function checkForm(){
+      let name = document.getElementById("name").value;
+      let email = document.getElementById("email").value;
+      let password = document.getElementById("password").value;
+
+      if(name === "" || email === "" || password === ""){
+        alert("გთხოვთ შეიყვანოთ სრული ინფორმაცია!");
+      } else {
+        alert("მონაცემები მიღებულია ✅");
+      }
+    }
+  </script>
+</body>
+</html>

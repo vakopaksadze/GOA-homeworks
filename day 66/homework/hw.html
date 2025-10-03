@@ -1,28 +1,43 @@
+
+You sent
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ka">
 <head>
   <meta charset="UTF-8">
-  <title>Objects and Functions</title>
+  <title>Logical Operators</title>
 </head>
 <body>
-  <!-- 2) Laptop ობიექტის method-ის გამოძახება -->
-  <button id="laptopBtn">Turn On Laptop</button>
-  <br><br>
+  <!-- 2) OR with checkboxes -->
+  <h3>OR (||) ოპერაცია Checkboxes</h3>
+  <input id="val1" type="checkbox"> Value 1
+  <input id="val2" type="checkbox"> Value 2
+  <button id="orBtn">Check OR</button>
+  <p id="orOut"></p>
+  <hr>
 
-  <!-- 2) ფონის შეცვლის მაგალითი -->
-  <button id="bgBtn">Change Background</button>
-  <div id="box" style="width:100px;height:100px;background-color:lightblue;"></div>
-  <br><br>
+  <!-- 3) NOT with checkbox -->
+  <h3>NOT (!) ოპერაცია Checkbox</h3>
+  <input id="notVal" type="checkbox"> Value
+  <button id="notBtn">Check NOT</button>
+  <p id="notOut"></p>
+  <hr>
 
-  <!-- 3) ასაკის შემოწმება -->
-  <input id="yearInput" type="number" placeholder="Enter your birth year">
-  <button id="yearBtn">Check Age</button>
-  <p id="ageMsg"></p>
-  <br><br>
+  <!-- 4) AND with numbers -->
+  <h3>AND (&&) ოპერაცია რიცხვებზე</h3>
+  <input id="num1" type="number" placeholder="Enter number 1">
+  <input id="num2" type="number" placeholder="Enter number 2">
+  <button id="andBtn">Check AND</button>
+  <p id="andOut"></p>
+  <hr>
 
-  <!-- 4) Teacher ობიექტის method-ის გამოძახება -->
-  <button id="greetBtn">Greet</button>
+  <!-- 5) OR with numbers -->
+  <h3>OR (||) ოპერაცია რიცხვებზე</h3>
+  <input id="valA" type="number" placeholder="Enter number A">
+  <input id="valB" type="number" placeholder="Enter number B">
+  <button id="orNumBtn">Check OR Numbers</button>
+  <p id="orNumOut"></p>
 
+  <!-- External JS -->
   <script src="script.js"></script>
 </body>
 </html>

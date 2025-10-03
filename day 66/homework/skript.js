@@ -1,58 +1,37 @@
-// 2) Laptop ობიექტი
-let laptop = {
-  brand: "Dell",     // property → ინახავს ინფორმაციას (ბრენდი)
-  RAM: "16GB",       // property → ინახავს ინფორმაციას (RAM)
-  price: 1200,       // property → ინახავს ინფორმაციას (ფასი)
-
-  // method → ფუნქცია, რომელიც ეკუთვნის ობიექტს
-  turnOn: function() {
-    console.log("Laptop is on");
-  }
-};
-
-// HTML ღილაკზე დაჭერისას გამოიძახება laptop.turnOn()
-document.getElementById("laptopBtn").onclick = function() {
-  laptop.turnOn();
-};
-
-
-// 2) ფონის შეცვლა div-ზე
-function changeBackground() {
-  document.getElementById("box").style.backgroundColor = "yellow";
+// 2) Check OR with checkboxes
+function checkOr() {
+    let v1 = document.getElementById("val1").checked;
+    let v2 = document.getElementById("val2").checked;
+    let result = v1 || v2; // || → true თუ ერთ-ერთი მაინც trueა
+    document.getElementById("orOut").innerText = "Result: " + result;
 }
+document.getElementById("orBtn").addEventListener("click", checkOr);
 
-document.getElementById("bgBtn").onclick = changeBackground;
 
-
-// 3) ასაკის შემოწმება
-function checkBirthYear() {
-  let year = document.getElementById("yearInput").value;
-  let currentYear = new Date().getFullYear();
-  let age = currentYear - year;
-
-  if (age < 18) {
-    document.getElementById("ageMsg").textContent = "Minor";
-  } else {
-    document.getElementById("ageMsg").textContent = "Adult";
-  }
+// 3) Check NOT with checkbox
+function checkNot() {
+    let val = document.getElementById("notVal").checked;
+    let result = !val; // ! → აბრუნებს საპირისპიროს
+    document.getElementById("notOut").innerText = "Result: " + result;
 }
+document.getElementById("notBtn").addEventListener("click", checkNot);
 
-document.getElementById("yearBtn").onclick = checkBirthYear;
+
+// 4) Check AND with numbers
+function checkAnd() {
+    let n1 = Number(document.getElementById("num1").value);
+    let n2 = Number(document.getElementById("num2").value);
+    let result = (n1 > 10) && (n2 > 10); // && → true მხოლოდ მაშინ, თუ ორივე პირობა სწორია
+    document.getElementById("andOut").innerText = "Result: " + result;
+}
+document.getElementById("andBtn").addEventListener("click", checkAnd);
 
 
-// 4) Teacher ობიექტი
-let teacher = {
-  name: "Mariam",       // property → მასწავლებლის სახელი
-  subject: "Math",      // property → საგანი
-  experience: 5,        // property → გამოცდილება წლებად
-
-  // method → ობიექტის ფუნქცია
-  greet: function() {
-    alert("Hello, I teach " + this.subject);
-  }
-};
-
-// HTML ღილაკზე დაჭერისას გამოიძახება teacher.greet()
-document.getElementById("greetBtn").onclick = function() {
-  teacher.greet();
-};
+// 5) Check OR with numbers
+function checkOrNum() {
+    let a = Number(document.getElementById("valA").value);
+    let b = Number(document.getElementById("valB").value);
+    let result = (a < 5) || (b < 5); // || → true თუ რომელიმე ნაკლებია 5-ზე
+    document.getElementById("orNumOut").innerText = "Result: " + result;
+}
+document.getElementById("orNumBtn").addEventListener("click", checkOrNum);
