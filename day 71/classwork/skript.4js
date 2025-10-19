@@ -1,0 +1,36 @@
+let numbers = [10, 20, 30, 40, 50, 20];
+
+// pop() შლის ბოლო ელემენტს
+numbers.pop(); 
+console.log(numbers);
+
+// shift() შლის პირველ ელემენტს
+numbers.shift();
+console.log(numbers);
+
+// unshift() ამატებს ახალ ელემენტს დასაწყისში
+numbers.unshift(5);
+console.log(numbers);
+
+// slice() ქმნის ახალ მასივს შერჩეული ელემენტებით, მაგრამ ორიგინალს არ ცვლის
+let part = numbers.slice(1, 3);
+console.log(part);
+
+// splice() შლის ან ამატებს ელემენტებს მასივში
+numbers.splice(2, 1, 99);
+console.log(numbers);
+
+// indexOf() აბრუნებს ელემენტის პირველ ინდექსს
+console.log(numbers.indexOf(20));
+
+// lastIndexOf() აბრუნებს ბოლო ინდექსს
+console.log([10, 20, 30, 20, 40].lastIndexOf(20));
+
+// includes() ამოწმებს არის თუ არა ელემენტი მასივში
+console.log(numbers.includes(99));
+
+// find() პოულობს პირველ ელემენტს რომელიც აკმაყოფილებს პირობას
+console.log(numbers.find(num => num > 30));
+
+// findIndex() აბრუნებს იმ ელემენტის ინდექსს რომელიც პირველია პირობის დაკმაყოფილებისას
+console.log(numbers.findIndex(num => num > 30));
