@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <title>Products Example</title>
+</head>
+<body>
+    <!-- 3 div ელემენტი, ყველას აქვს class="product" -->
+    <div class="product" id="firstProduct">
+        <h2>Phone</h2>
+        <p>Price: $500</p>
+    </div>
+
+    <div class="product">
+        <h2>Laptop</h2>
+        <p>Price: $1000</p>
+    </div>
+
+    <div class="product">
+        <h2>Headphones</h2>
+        <p>Price: $150</p>
+    </div>
+
+    <script>
+        // DOM (Document Object Model) არის ვებგვერდის სტრუქტურა, 
+        // რომელიც ბრაუზერი ქმნის HTML კოდის წაკითხვის შემდეგ.
+        // მას ვხმარობთ ელემენტებზე წვდომისა და მათთან მანიპულაციისთვის (მაგ. ტექსტის შეცვლა, სტილის დამატება და ა.შ.)
+
+        // getElementsByTagName - აბრუნებს ყველა ელემენტს მითითებული ტეგის მიხედვით
+        let allDivs = document.getElementsByTagName("div");
+        console.log(allDivs); // აბრუნებს ყველა <div> ელემენტს
+
+        // getElementsByClassName - აბრუნებს ყველა ელემენტს მითითებული კლასის მიხედვით
+        let products = document.getElementsByClassName("product");
+        console.log(products); // აბრუნებს ყველა ელემენტს class="product"
+
+        // previousElementSibling - აბრუნებს ელემენტს, რომელიც დგას მოცემული ელემენტის წინ
+        let secondProduct = products[1];
+        console.log(secondProduct.previousElementSibling); // დააბრუნებს პირველ product-ს
+
+        // nextElementSibling - აბრუნებს ელემენტს, რომელიც დგას მოცემული ელემენტის შემდეგ
+        console.log(secondProduct.nextElementSibling); // დააბრუნებს მესამეს product-ს
+
+        // firstChild - აბრუნებს ელემენტის პირველ შვილ ელემენტს (შეიძლება ტექსტიც იყოს)
+        let firstDiv = document.getElementById("firstProduct");
+        console.log(firstDiv.firstChild); // აბრუნებს პირველ შიგთავსს (ხშირად ტექსტურ ცარიელ სივრცეს)
+
+        // lastChild - აბრუნებს ელემენტის ბოლო შვილ ელემენტს
+        console.log(firstDiv.lastChild); // აბრუნებს ბოლო შიგთავსს (შეიძლება ტექსტი ან <p> იყოს)
+    </script>
+</body>
+</html>
