@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <title>JS დავალება</title>
+</head>
+<body>
+
+<!-- ✅ 2) შემთხვევითი რიცხვის დამატება ღილაკზე დაჭერით -->
+<button id="btn">დაამატე შემთხვევითი რიცხვი</button>
+
+<hr>
+
+<!-- ✅ 4) ფორმა და ცხრილი -->
+<form id="userForm">
+  <input type="text" id="fullName" placeholder="სრული სახელი" required>
+  <input type="email" id="email" placeholder="ელფოსტა" required>
+  <input type="tel" id="phone" placeholder="ტელეფონი" required>
+  <button type="submit">დამატება</button>
+</form>
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>სახელი</th>
+      <th>ელფოსტა</th>
+      <th>ტელეფონი</th>
+    </tr>
+  </thead>
+  <tbody id="tableBody"></tbody>
+</table>
+
+<script>
+// ✅ 2) შემთხვევითი რიცხვის დამატება ღილაკზე დაჭერით
+
+const btn = document.getElementById('btn');
+
+btn.addEventListener('click', function() {
+  // ვქმნით ახალ <p> ელემენტს
+  const p = document.createElement('p');
+
+  // Math.random() → აბრუნებს შემთხვევით რიცხვს 0-დან 1-მდე (მაგ: 0.345)
+  // Math.floor() → ამრგვალებს ქვემოთ უახლოეს მთელ რიცხვამდე
+  // ვამრავლებთ 1000-ზე, რომ მივიღოთ რიცხვი 0-დან 1000-მდე
+  const randomNum = Math.floor(Math.random() * 1000);
+
+  // ვწერთ რიცხვს პარაგრაფში
+  p.textContent = randomNum;
+
+  // ვამატებთ პარაგრაფს body-ში
+  document.body.appendChild(p);
+});
+
+
+// ✅ 3) var, let, const და ლექსიკური ფარგლები
+
+// var → შეიძლება თავიდან გამოცხადდეს და შეიცვალოს
+var name = "Vako";
+name = "Gio"; // შეცვლა ნებადართულია
+
+// let → შეიძლება შეიცვალოს, მაგრამ თავიდან გამოცხადება იმავე ბლოკში აკრძალულია
+let age = 15;
+age = 16; // შეცვლა შეიძლება
+
+// const → მუდმივია, გამოცხადების შემდეგ შეცვლა არ შეიძლება
+const country = "Georgia";
+
+// მოქმედების არეალი:
+// var → ფუნქციის ფარგლები
+// let, const → ბლოკის ({} შიგნით)
+
+// ლექსიკური ფარგლების მაგალითი
+function outer() {
+  let outerVar = "გარე ცვლადი";
+
+  function inner() {
+    let innerVar = "შიდა ცვლადი";
+    console.log(outerVar); // ✅ ხილულია, რადგან outerVar ზემოთაა აღწერილი
+  }
+
+  inner();
+  // console.log(innerVar); ❌ ვერ ვნახავთ, რადგან innerVar მხოლოდ შიდა ფუნქციაშია
+}
+
+outer();
+/*
+ლექსიკური ფარგლები ნიშნავს იმას, რომ შიდა ფუნქციას
+აქვს წვდომა გარე ფუნქციაში გამოცხადებულ ცვლადებზე,
+მაგრამ პირიქით არა.
+*/
+
+
+// ✅ 4) ფორმა და ცხრილი container და presentational ფუნქციებით
+
+const form = document.getElementById('userForm');
+const tableBody = document.getElementById('tableBody');
+
+// container ფუნქცია — აგროვებს მონაცემებს და ქმნის tr ელემენტს
+function container(data) {
+  const tr = document.createElement('tr');
+  
+  // თითოეული მნიშვნელობისთვის ვქმნით <td> და ვამატებთ tr-ში
+  for (let value of data) {
+    const td = document.createElement('td');
+    td.textContent = value;
+    tr.appendChild(td);
+  }
+
+  // ვაბრუნებთ მზად tr ელემენტს
+  return tr;
+}
+
+// presentational ფუნქცია — ამატებს შექმნილ tr ელემენტს ცხრილში
+function presentational(tr) {
+  tableBody.appendChild(tr);
+}
+
+// form-ზე submit მოვლენა
+form.addEventListener('submit', function(e) {
+  e.preventDefault(); // ვაბრუნებთ გვერდის განახლებას
+
+  // ვიღებთ მნიშვნელობებს ფორმიდან
+  const fullName = document.getElementById('fullName').value;
+  const email = document.getElementById('email').value;
+  const phone = document.getElementById('phone').value;
+
+  // container ქმნის tr ელემენტს
+  const newRow = container([fullName, email, phone]);
+
+  // presentational ამატებს ცხრილში
+  presentational(newRow);
+
+  // ფორმის გასუფთავება
+  form.reset();
+});
+</script>
+
+</body>
+</html>
