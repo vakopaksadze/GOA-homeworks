@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <title>ფორმა და ცხრილი</title>
+  <style>
+    body {
+      font-family: Arial;
+      margin: 30px;
+    }
+    form {
+      margin-bottom: 20px;
+    }
+    input {
+      margin: 5px;
+    }
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+      padding: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>მომხმარებლის ინფორმაცია</h2>
+
+  <form id="userForm">
+    <input type="text" id="fullName" placeholder="სრული სახელი" required>
+    <input type="email" id="email" placeholder="ელფოსტა" required>
+    <input type="tel" id="phone" placeholder="ტელეფონი" required>
+    <button type="submit">გაგზავნა</button>
+  </form>
+
+  <table>
+    <thead>
+      <tr>
+        <th>სრული სახელი</th>
+        <th>ელფოსტა</th>
+        <th>ტელეფონი</th>
+      </tr>
+    </thead>
+    <tbody id="userTableBody"></tbody>
+  </table>
+
+  <script>
+    function createUserRow(name, email, phone) {
+      const tr = document.createElement('tr');
+      const nameTd = document.createElement('td');
+      const emailTd = document.createElement('td');
+      const phoneTd = document.createElement('td');
+      nameTd.textContent = name;
+      emailTd.textContent = email;
+      phoneTd.textContent = phone;
+      tr.appendChild(nameTd);
+      tr.appendChild(emailTd);
+      tr.appendChild(phoneTd);
+      return tr;
+    }
+
+    function addRowToTable(trElement) {
+      const tableBody = document.getElementById('userTableBody');
+      tableBody.appendChild(trElement);
+    }
+
+    document.getElementById('userForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('fullName').value;
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+      const newRow = createUserRow(name, email, phone);
+      addRowToTable(newRow);
+      e.target.reset();
+    });
+  </script>
+
+</body>

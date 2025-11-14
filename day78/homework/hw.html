@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="UTF-8">
+<title>All Tasks</title>
+<style>
+  div, section, button { padding: 15px; margin: 10px; border: 2px solid black; display: block; }
+</style>
+</head>
+<body>
+
+<h1>2) Capturing & Bubbling</h1>
+
+<div id="div">
+  DIV
+  <section id="section">
+    SECTION
+    <button id="btn">BUTTON</button>
+  </section>
+</div>
+
+<hr>
+
+<h1>3) Simple Counter</h1>
+<p id="value">0</p>
+<button id="plus">+</button>
+<button id="minus">-</button>
+
+<hr>
+
+<h1>4) Name save (localStorage)</h1>
+<form id="form">
+  <input type="text" id="nameInput" placeholder="სახელი">
+  <button type="submit">Submit</button>
+</form>
+<p id="greet"></p>
+
+<hr>
+
+<h1>5) Logout → Clear localStorage</h1>
+<button id="logout">Logout</button>
+<p id="msg"></p>
+
+<hr>
+
+<h1>6) sessionStorage Counter</h1>
+<p>Counter (refresh-ზე იზრდება, ტაბის დახურვაზე იზრდება): <span id="sessCount"></span></p>
+
+<hr>
+
+<h1>8) Register / Login</h1>
+
+<h2>Register</h2>
+<form id="regForm">
+  <input id="regUser" placeholder="username">
+  <input id="regPass" placeholder="password">
+  <button type="submit">Register</button>
+</form>
+
+<h2>Login</h2>
+<form id="logForm">
+  <input id="logUser" placeholder="username">
+  <input id="logPass" placeholder="password">
+  <button type="submit">Login</button>
+</form>
+
+<h2 id="welcome" style="display:none;"></h2>
+<button id="logoutBtn" style="display:none;">Logout</button>
+
+<script>
+// ========== 2) CAPTURING & BUBBLING ==========
+const div = document.getElementById("div");
+const section = document.getElementById("section");
+const btn = document.getElementById("btn");
+
+// bubbling
+div.addEventListener("click", () => console.log("DIV bubbling"), false);
+section.addEventListener("click", () => console.log("SECTION bubbling"), false);
+btn.addEventListener("click", () => console.log("BUTTON bubbling"), false);
+
+// capturing
+div.addEventListener("click", () => console.log("DIV capturing"), true);
+section.addEventListener("click", () => console.log("SECTION capturing"), true);
+btn.addEventListener("click", () => console.log("BUTTON capturing"), true);
+
+
+// ========== 3) Counter ==========
+let count = 0;
+const value = document.getElementById("value");
+
+document.getElementById("plus").addEventListener("click", () => {
+  count++;
+  value.textContent = count;
+});
+document.getElementById("minus").addEventListener("click", () => {
+  count--;
+  value.textContent = count;
+});
+
+
+// ========== 4) Save name to localStorage ==========
+const form = document.getElementById("form");
+const greet = document.getElementById("greet");
+
+form.addEventListener("submit", e => {
+  e.preventDefault();
+  const name = document.getElementById("nameInput").value;
+  localStorage.setItem("username", name);
+  greet.textContent = "გამარჯობა " + name;
+});
+
+
+// ========== 5) Logout (clear localStorage) ==========
+document.getElementById("logout").addEventListener("click", () => {
+  localStorage.clear();
+  document.getElementById("msg").textContent = "თქვენ გახვედით სისტემიდან";
+});
+
+
+// ========== 6) sessionStorage Counter ==========
+if (!sessionStorage.getItem("counter")) {
+  sessionStorage.setItem("counter", 0);
+}
+let c = Number(sessionStorage.getItem("counter"));
+c++;
+sessionStorage.setItem("counter", c);
+document.getElementById("sessCount").textContent = c;
+
+
+// ========== 😎 Register / Login ==========
+regForm.addEventListener("submit", e => {
+  e.preventDefault();
+  localStorage.setItem("user", regUser.value);
+  localStorage.setItem("pass", regPass.value);
+});
+
+logForm.addEventListener("submit", e => {
+  e.preventDefault();
+
+  if (
+    logUser.value === localStorage.getItem("user") &&
+    logPass.value === localStorage.getItem("pass")
+  ) {
+    regForm.style.display = "none";
+    logForm.style.display = "none";
+
+    welcome.style.display = "block";
+    welcome.textContent = "Welcome " + localStorage.getItem("user");
+
+    logoutBtn.style.display = "block";
+  }
+});
+
+logoutBtn.addEventListener("click", () => {
+  localStorage.removeItem("user");
+  localStorage.removeItem("pass");
+
+  welcome.style.display = "none";
+  logoutBtn.style.display = "none";
+
+  regForm.style.display = "block";
+  logForm.style.display = "block";
+});
+</script>
+
+</body>
+</html>

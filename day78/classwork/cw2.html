@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Image Slider</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: sans-serif;
+    }
+    img {
+      width: 400px;
+      height: 250px;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 20px 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>📸 მარტივი სურათების სლაიდერი</h2>
+
+  <img id="slider" src="http://www.sololearn.com/uploads/slider/1.jpg" alt="slider image">
+
+  <div>
+    <button id="prev">⬅ Prev</button>
+    <button id="next">Next ➡</button>
+  </div>
+
+  <script>
+    const images = [
+      "http://www.sololearn.com/uploads/slider/1.jpg", 
+      "http://www.sololearn.com/uploads/slider/2.jpg", 
+      "http://www.sololearn.com/uploads/slider/3.jpg"
+    ];
+
+    let index = 0; // 📍 ინახავს ამჟამინდელ სურათის ინდექსს
+
+    const img = document.getElementById("slider");
+    const prev = document.getElementById("prev");
+    const next = document.getElementById("next");
+
+    // ▶ Next ღილაკზე დაჭერისას შემდეგ სურათზე გადასვლა
+    next.addEventListener("click", function() {
+      index++; // მივდივართ შემდეგ ინდექსზე
+      if (index >= images.length) {
+        index = 0; // თუ ბოლო სურათი იყო, დავბრუნდეთ პირველზე
+      }
+      img.src = images[index]; // ვცვლით სურათის src-ს
+    });
+
+    // ◀ Prev ღილაკზე დაჭერისას წინა სურათზე დაბრუნება
+    prev.addEventListener("click", function() {
+      index--; // ვშლით ინდექსს ერთი ერთეულით
+      if (index < 0) {
+        index = images.length - 1; // თუ პირველზე ვართ, გადავიდეთ ბოლოზე
+      }
+      img.src = images[index]; // ვცვლით სურათს
+    });
+  </script>
+
+</body>
+</html>

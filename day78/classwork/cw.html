@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <title>Event Propagation მაგალითი</title>
+  <style>
+    div {
+      padding: 30px;
+      text-align: center;
+      border: 2px solid black;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="outer">
+    გარე DIV
+    <div id="inner">
+      შიდა DIV
+      <button id="btn">დამაჭირე</button>
+    </div>
+  </div>
+
+  <script>
+    //  Event propagation ნიშნავს იმას, როგორ გადადის მოვლენა (მაგ. click) ელემენტებიდან სხვებზე.
+    // იგი შეიძლება მოხდეს ორ გზით: capturing და bubbling.
+
+    //  Bubbling (ნორმალური გზა) – მოვლენა იწყება ყველაზე შიდა ელემენტიდან და მიემართება გარესკენ.
+    // ანუ ჯერ button -> inner div -> outer div -> body
+
+    document.getElementById("outer").addEventListener("click", function() {
+      console.log("Outer div-ზე დაჭერილია");
+    });
+
+    document.getElementById("inner").addEventListener("click", function() {
+      console.log("Inner div-ზე დაჭერილია");
+    });
+
+    document.getElementById("btn").addEventListener("click", function() {
+      console.log("Button-ზე დაჭერილია");
+    });
+
+    //  Capturing (მეორე გზა) – მოვლენა იწყება გარედან და გადმოდის შიგნით.
+    // მაგ: body -> outer div -> inner div -> button
+
+    document.getElementById("outer").addEventListener("click", function() {
+      console.log("Outer div (capturing)");
+    }, true); // მსამე არგუმენტი true ნიშნვს capturing რეჟიმს
+
+    document.getElementById("inner").addEventListener("click", function() {
+      console.log("Inner div (capturing)");
+    }, true);
+
+    document.getElementById("btn").addEventListener("click", function() {
+      console.log("Button (capturing)");
+    }, true);
+  </script>
+</body>
+</html>

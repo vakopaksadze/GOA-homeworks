@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <title>Event Examples</title>
+  <style>
+    body { font-family: sans-serif; }
+    ul { list-style: none; padding: 0; }
+    li { margin: 5px 0; }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+
+  <h2>(2) addEventListener და submit refresh</h2>
+  <form id="myForm">
+    <input type="text" placeholder="შეიყვანე ტექსტი">
+    <button type="submit">გაგზავნა</button>
+  </form>
+
+  <hr>
+
+  <h2>(3) მოვლენის მაგალითები</h2>
+  <input type="text" id="input" placeholder="ჩაწერე რამე">
+  <button id="btn">დაჭირე</button>
+
+  <hr>
+
+  <h2>(4) To-Do სია</h2>
+  <form id="taskForm">
+    <input type="text" id="taskInput" placeholder="შეიყვანე საქმე">
+    <button type="submit">დამატება</button>
+  </form>
+  <ul id="taskList"></ul>
+
+  <hr>
+
+  <h2>(5) ძებნა სიაში</h2>
+  <input type="text" id="searchInput" placeholder="მოძებნე ტექსტი">
+  <button id="searchBtn">ძებნა</button>
+
+  <ul id="itemList">
+    <li>ვაშლი</li>
+    <li>ბანანი</li>
+    <li>ატამი</li>
+    <li>საზამთრო</li>
+    <li>მანგო</li>
+  </ul>
+
+<script>
+// (2) addEventListener და submit refresh ახსნა
+const form = document.getElementById("myForm");
+form.addEventListener("submit", function(event) {
+  // თავიდან ავირიდოთ refresh — default ქცევაა submit-ისას
+  event.preventDefault();
+  alert("ფორმა გაიგზავნა, მაგრამ გვერდი აღარ განახლდა!");
+});
+
+// (3) მოვლენის მაგალითები
+const btn = document.getElementById("btn");
+const input = document.getElementById("input");
+
+// onclick – ღილაკზე დაჭერისას
+btn.onclick = function() {
+  alert("ღილაკზე დააჭირე!");
+};
+
+// onload – როცა გვერდი ჩაიტვირთება
+window.onload = function() {
+  console.log("გვერდი ჩაიტვირთა!");
+};
+
+// onunload – როცა მომხმარებელი ტოვებს გვერდს
+window.onunload = function() {
+  console.log("გვერდიდან გასვლა");
+};
+
+// onchange – input-ის მნიშვნელობის შეცვლისას
+input.onchange = function() {
+  alert("ტექსტი შეიცვალა!");
+};
+
+// onmouseover – როცა მაუსი გადადის ღილაკზე
+btn.onmouseover = function() {
+  btn.textContent = "მაუსი ჩემს თავზეა!";
+};
+
+// onmouseout – როცა მაუსი გადადის ღილაკიდან
+btn.onmouseout = function() {
+  btn.textContent = "დაჭირე";
+};
+
+// onmousedown – როცა მაუსის ღილაკს ვაჭერთ
+btn.onmousedown = function() {
+  btn.style.background = "lightgreen";
+};
+
+// onmouseup – როცა მაუსის ღილაკს ვუშვებთ
+btn.onmouseup = function() {
+  btn.style.background = "";
+};
+
+// onfocus – როცა input-ზე ვფოკუსირდებით
+input.onfocus = function() {
+  input.style.border = "2px solid blue";
+};
+
+// onblur – როცა ფოკუსი მოიხსნება
+input.onblur = function() {
+  input.style.border = "1px solid gray";
+};
+
+// (4) To-Do სია
+const taskForm = document.getElementById("taskForm");
+const taskInput = document.getElementById("taskInput");
+const taskList = document.getElementById("taskList");
+
+taskForm.addEventListener("submit", function(e) {
+  e.preventDefault(); // გვერდის განახლების თავიდან აცილება
+  const taskText = taskInput.value.trim();
+  if (taskText === "") return;
+
+  const li = document.createElement("li");
+  li.textContent = taskText;
+
+  const doneBtn = document.createElement("button");
+  doneBtn.textContent = "შესრულებულია";
+
+  // addEventListener ღილაკისთვის — როცა დავაჭერთ კონკრეტულ საქმეს გადახაზავს
+  doneBtn.addEventListener("click", function() {
+    // li.parentElement ან this.parentElement მიუთითებს კონკრეტულ <li>-ზე
+    li.style.textDecoration = "line-through";
+  });
+
+  li.appendChild(doneBtn);
+  taskList.appendChild(li);
+  taskInput.value = "";
+});
+
+// (5) ძებნა სიაში
+const searchInput = document.getElementById("searchInput");
+const searchBtn = document.getElementById("searchBtn");
+const itemList = document.getElementById("itemList").getElementsByTagName("li");
+
+searchBtn.addEventListener("click", function() {
+  const searchText = searchInput.value.toLowerCase();
+
+  // გადავუვლით თითოეულ li-ს
+  for (let i = 0; i < itemList.length; i++) {
+    const itemText = itemList[i].textContent.toLowerCase();
+
+    // თუ li შეიცავს საძიებო ტექსტს — ვაჩვენებთ, თუ არა — ვმალავთ
+    if (itemText.includes(searchText)) {
+      itemList[i].style.display = "list-item";
+    } else {
+      itemList[i].style.display = "none";
+    }
+  }
+});
+</script>
+
+</body>
+</html>
