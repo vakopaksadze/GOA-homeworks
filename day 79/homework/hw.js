@@ -28,7 +28,7 @@ let age = 16;
 const country = "Georgia";
 
 // const-ს ვერ ვცვლით, რადგან ის არის მუდმივად განსაზღვრული მნიშვნელობა
-console.log(My name is ${userName}, I am ${age}, I live in ${country});
+
 
 
 // ===========================
@@ -76,7 +76,7 @@ getProducts();
 const user = {name: "Luka", level: 5, score: 190};
 
 for (let key in user) {
-    console.log(${key}: ${user[key]});
+
 }
 
 
@@ -99,11 +99,12 @@ for (let number of nums) {
 
 // ჩვეულებრივი function
 function greet(name) {
-    return Hello, ${name};
+  
+    
 }
 
 // arrow function – მოკლე, eventListener-ებში და მარტივ ფუნქციებში ყველაზე მოსახერხებელი
-const goodbye = (name) => Goodbye, ${name};
+
 
 console.log(greet("Nika"));
 console.log(goodbye("Luka"));
