@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tic Tac Toe</title>
+<style>
+  body { font-family: sans-serif; text-align: center; background: #f0f0f0; }
+  h1 { margin-top: 20px; }
+  .board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    gap: 5px;
+    justify-content: center;
+    margin-top: 30px;
+  }
+  .cell {
+    width: 100px; height: 100px;
+    background: white;
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  .cell:hover { background: #e0e0e0; }
+</style>
+</head>
+<body>
+
+<h1>🎮 Tic Tac Toe</h1>
+<div class="board" id="board"></div>
+<h2 id="status">მოთამაშე X-ის ჯერია</h2>
+
+<script>
+const board = document.getElementById("board");
+const statusText = document.getElementById("status");
+let cells = Array(9).fill("");
+let current = "X";
+
+function render() {
+  board.innerHTML = "";
+  cells.forEach((val, i) => {
+    const cell = document.createElement("div");
+    cell.classList.add("cell");
+    cell.textContent = val;
+    cell.onclick = () => makeMove(i);
+    board.appendChild(cell);
+  });
+}
+
+function makeMove(i) {
+  if (cells[i] !== "") return;
+  cells[i] = current;
+  if (checkWin(current)) {
+    statusText.textContent = 🎉 მოთამაშე ${current} გაიმარჯვა!;
+    board.style.pointerEvents = "none";
+    return;
+  }
+  if (!cells.includes("")) {
+    statusText.textContent = "🤝 ფრეა!";
+    return;
+  }
+  current = current === "X" ? "O" : "X";
+  statusText.textContent = მოთამაშე ${current}-ის ჯერია;
+  render();
+}
+
+function checkWin(p) {
+  const w = [
+    [0,1,2],[3,4,5],[6,7,8],
+    [0,3,6],[1,4,7],[2,5,8],
+    [0,4,8],[2,4,6]
+  ];
+  return w.some(combo => combo.every(i => cells[i] === p));
+}
+
+render();
+</script>
+
+</body>
+</html>
