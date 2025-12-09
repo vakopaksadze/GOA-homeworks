@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Level 85 | Frontend</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    #result, #output { margin-top: 20px; padding: 10px; border: 1px solid #ccc; }
+  </style>
+</head>
+<body>
+
+  <h1>LocalStorage და Crypto Tracker</h1>
+
+  <!-- ✔ Data Output -->
+  <h2>User Data (localStorage)</h2>
+  <div id="output"></div>
+
+
+  <hr>
+
+  <!-- ✔ Crypto Tracker -->
+  <h2>Crypto Tracker</h2>
+  <input id="cryptoInput" type="text" placeholder="Enter crypto name...">
+  <button id="searchBtn">Search</button>
+
+  <div id="result"></div>
+
+
+  <script>
+    /* =========================
+          PART 1 — data.json
+       ========================= */
+
+    const data = [
+      { id: 1, name: "Vako", balance: 120 },
+      { id: 2, name: "Nika", balance: 300 },
+      { id: 3, name: "Mariam", balance: 450 }
+    ];
+
+    // JSON.stringify -> localStorage
+    localStorage.setItem("users", JSON.stringify(data));
+
+    // JSON.parse -> localStorage data
+    const returnedData = JSON.parse(localStorage.getItem("users"));
+
+    // ეკრანზე გამოტანა
+    const output = document.getElementById("output");
+
+    returnedData.forEach(user => {
+      const p = document.createElement("p");
+      p.textContent = ${user.id}) ${user.name} — Balance: $${user.balance};
+      output.appendChild(p);
+    });
+
+
+    /* =========================
+          PART 2 — CRYPTO TRACKER
+       ========================= */
+
+    const input = document.getElementById("cryptoInput");
+    const btn = document.getElementById("searchBtn");
+    const result = document.getElementById("result");
+
+    btn.addEventListener("click", fetchCrypto);
+
+    async function fetchCrypto() {
+      const crypto = input.value.trim().toLowerCase();
+
+      // UI clear
+      result.innerHTML = "";
+
+      if (!crypto) {
+        result.textContent = "გთხოვთ ჩაწერეთ კრიპტოს სახელი!";
+        return;
+      }
+
+      try {
+        const res = await fetch(
+          https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${crypto}
+        );
+
+        const data = await res.json();
+
+        if (data.length === 0) {
+          result.textContent = "კრიპტო არ მოიძებნა!";
+          return;
+        }
+
+        const coin = data[0];
+
+        result.innerHTML = `
+          <h3>${coin.name}</h3>
+          <p>Price: $${coin.current_price}</p>
+          <p>24h Change: ${coin.price_change_percentage_24h}%</p>
+        `;
+
+      } catch (err) {
+        result.textContent = "მოხდა შეცდომა. სცადეთ თავიდან.";
+      }
+    }
+  </script>
+
+</body>
+</html>
