@@ -145,7 +145,7 @@ const systemInfo = {
   memory: os.freemem(),
 };
 
-console.log("System Info:", util.inspect(systemInfo));
+con/        sole.log("System Info:", util.inspect(systemInfo));
 
 // ლოგის ფორმატირება
 console.log(util.format("Platform is %s", systemInfo.platform));
@@ -172,3 +172,14 @@ console.log(util.format("Platform is %s", systemInfo.platform));
 // - CLI tools
 // - backend server
 // - automation scripts
+
+
+
+
+
+
+
+
+
+ BVHJY,LIU OYU8I
+ ]
